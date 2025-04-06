@@ -4,7 +4,7 @@
 
 ## 📝 Description
 
-The rules are designed to improve code consistency and allow certain common practices in the development of modern applications.
+This package contains custom ESLint rules designed to improve code consistency and allow certain common practices in the development of modern applications with TypeScript and React.
 
 ## 📦 Installation
 
@@ -20,13 +20,27 @@ npm install @soyluisarrieta/eslint --save-dev
 
 ## 📋 Usage
 
-In your `eslint.config.js` file:
+In your `eslint.config.js` file, simply import the package and add it to the `extends` array:
 
 ```js
-import eslintConfig from '@soyluisarrieta/eslint';
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import tseslint from 'typescript-eslint'
+import soyluisarrietaESlint from '@soyluisarrieta/eslint'
 
-export default eslintConfig;
+export default tseslint.config(
+  { ignores: ['dist'] },
+  {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended, soyluisarrietaESlint],
+    // rest of your configuration...
+  }
+)
 ```
+
+> [!IMPORTANT]  
+> After implementing the package, it is necessary to **restart the code editor** for the ESLint extension to fully detect it.
 
 ## 📋 Manual Configuration
 
