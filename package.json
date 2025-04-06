@@ -1,6 +1,6 @@
 {
   "name": "@soyluisarrieta/eslint",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "ESLint configuration for TypeScript and React",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
