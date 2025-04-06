@@ -27,5 +27,9 @@
   "devDependencies": {
     "@types/node": "^22.14.0",
     "typescript": "^5.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soyluisarrieta/eslint.git"
   }
 }
