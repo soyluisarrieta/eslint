@@ -1,65 +1,70 @@
-const js = require('@eslint/js');
-const react = require('eslint-plugin-react');
-const typescriptEslint = require('@typescript-eslint/eslint-plugin');
-const typescriptParser = require('@typescript-eslint/parser');
+import js from '@eslint/js';
+import globals from 'globals';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
 
-module.exports = [
+export default tseslint.config(
+  { ignores: ['dist', '**/node_modules/**', '**/dist/**', 'src/components/ui/**'] },
   {
+    extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
-      parser: typescriptParser,
       ecmaVersion: 2020,
-      sourceType: 'module',
-      ecmaFeatures: {
-        jsx: true,
-      },
+      globals: globals.browser,
     },
     plugins: {
-      react,
-      '@typescript-eslint': typescriptEslint,
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
+      'react': react,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
     },
     rules: {
-      '@typescript-eslint/no-unused-expressions': 'off',
-      '@typescript-eslint/no-misused-promises': 'off',
-      '@typescript-eslint/no-floating-promises': 'off',
-      '@typescript-eslint/strict-boolean-expressions': 'off',
-      '@typescript-eslint/no-unused-vars': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/no-empty-interface': 'off',
-      '@typescript-eslint/ban-types': 'off',
-      'semi': ['error', 'never'],
-      'quotes': ['error', 'single'],
-      'space-before-function-paren': ['error', 'always'],
-      'comma-dangle': ['error', 'never'],
-      'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 0 }],
-      'eol-last': ['error', 'always'],
-      'object-curly-spacing': ['error', 'always'],
-      'array-bracket-spacing': ['error', 'never'],
-      'computed-property-spacing': ['error', 'never'],
-      'space-in-parens': ['error', 'never'],
-      'space-before-blocks': ['error', 'always'],
-      'keyword-spacing': ['error', { 'before': true, 'after': true }],
-      'space-infix-ops': 'error',
-      'key-spacing': ['error', { 'beforeColon': false, 'afterColon': true }],
-      'indent': ['error', 2],
-      'no-trailing-spaces': 'error',
-      'react/jsx-indent': ['error', 2],
-      'react/react-in-jsx-scope': 'off',
-      'arrow-spacing': ['error', { 'before': true, 'after': true }],
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+
+      // Custom
+      '@typescript-eslint/no-unused-expressions': 'off',                        // Allows unused expressions
+      '@typescript-eslint/no-misused-promises': 'off',                          // Allows unhandled promises
+      '@typescript-eslint/no-floating-promises': 'off',                         // Allows promises without await
+      '@typescript-eslint/strict-boolean-expressions': 'off',                   // Allows more flexible boolean expressions
+      '@typescript-eslint/no-unused-vars': 'off',                               // For type variables
+      '@typescript-eslint/no-explicit-any': 'off',                              // For the use of 'any'
+      '@typescript-eslint/no-empty-interface': 'off',                           // For empty interfaces
+      '@typescript-eslint/ban-types': 'off',                                    // For prohibited types
+      'semi': ['error', 'never'],                                               // Does not allow semicolons at the end
+      'quotes': ['error', 'single'],                                            // Enforces the use of single quotes
+      'space-before-function-paren': ['error', 'always'],                       // Requires space before parentheses in functions
+      'comma-dangle': ['error', 'never'],                                       // Does not allow trailing commas in lists
+      'no-multiple-empty-lines': ['error', { 'max': 1, 'maxEOF': 0 }],          // Maximum one consecutive blank line
+      'eol-last': ['error', 'always'],                                          // Requires an empty line at the end of the file
+      'object-curly-spacing': ['error', 'always'],                              // Requires spaces inside braces
+      'array-bracket-spacing': ['error', 'never'],                              // Does not allow spaces inside brackets
+      'computed-property-spacing': ['error', 'never'],                          // Does not allow spaces in computed properties
+      'space-in-parens': ['error', 'never'],                                    // Does not allow spaces inside parentheses
+      'space-before-blocks': ['error', 'always'],                               // Requires space before blocks
+      'keyword-spacing': ['error', { 'before': true, 'after': true }],          // Requires spaces before and after keywords
+      'space-infix-ops': 'error',                                               // Requires spaces around operators
+      'key-spacing': ['error', { 'beforeColon': false, 'afterColon': true }],   // Format of spaces in object properties
+      'indent': ['error', 2],                                                   // Indentation of 2 spaces
+      'no-trailing-spaces': 'error',                                            // Does not allow trailing spaces at the end of lines
+      'react/jsx-indent': ['error', 2],                                         // JSX indentation of 2 spaces
+      'react/react-in-jsx-scope': 'off',                                        // Allows JSX without importing React
+      'arrow-spacing': ['error', { 'before': true, 'after': true }],            // Requires spaces before and after arrows
+
+      // Require spaces at the end of JSX tags
       'react/jsx-tag-spacing': [
         'error',
         {
           'closingSlash': 'never',
           'beforeSelfClosing': 'always',
           'afterOpening': 'never',
-          'beforeClosing': 'never',
-        },
-      ],
-    },
-  },
-];
+          'beforeClosing': 'never'
+        }
+      ]
+    }
+  }
+);

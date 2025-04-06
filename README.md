@@ -6,7 +6,31 @@
 
 Las reglas están diseñadas para mejorar la consistencia del código y permitir ciertas prácticas comunes en el desarrollo de aplicaciones modernas.
 
-## 📋 Instrucciones
+## 📦 Instalación
+
+```bash
+pnpm add @soyluisarrieta/eslint -D
+```
+
+O usando npm:
+
+```bash
+npm install @soyluisarrieta/eslint --save-dev
+```
+
+## 📋 Uso
+
+En tu archivo `eslint.config.js`:
+
+```js
+import eslintConfig from '@soyluisarrieta/eslint';
+
+export default eslintConfig;
+```
+
+## 📋 Configuración Manual
+
+Si prefieres configurar las reglas manualmente en lugar de usar el paquete:
 
 1. Instalar `eslint-plugin-react` como dependencia de desarrollo:
 
