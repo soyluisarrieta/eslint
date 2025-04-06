@@ -2,15 +2,19 @@
   "name": "@soyluisarrieta/eslint",
   "version": "0.1.2",
   "description": "ESLint configuration for TypeScript and React",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "publishConfig": {
     "access": "public"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0",
-    "eslint-plugin-react": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.0.0"
+    "eslint": "^9.0.0",
+    "eslint-plugin-react": "^7.0.0"
   },
   "keywords": [
     "eslint",
@@ -19,5 +23,9 @@
     "configuration"
   ],
   "author": "@soyluisarrieta",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "typescript": "^5.8.3"
+  }
 }
