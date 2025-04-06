@@ -1,0 +1,23 @@
+{
+  "name": "@soyluisarrieta/eslint",
+  "version": "0.0.0",
+  "description": "ESLint configuration for TypeScript and React",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "eslint": "^9.0.0",
+    "eslint-plugin-react": "^7.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0"
+  },
+  "keywords": [
+    "eslint",
+    "typescript",
+    "react",
+    "configuration"
+  ],
+  "author": "@soyluisarrieta",
+  "license": "MIT"
+}
