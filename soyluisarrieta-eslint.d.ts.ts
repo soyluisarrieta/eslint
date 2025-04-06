@@ -1,1 +1,1 @@
-declare module '@soyluisarrieta/eslint-config';
+declare module '@soyluisarrieta/eslint';
