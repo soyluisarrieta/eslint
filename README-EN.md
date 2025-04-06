@@ -2,11 +2,11 @@
 
 🌐 [**Español**](./README.md) | English
 
-## Description
+## 📝 Description
 
 The rules are designed to improve code consistency and allow certain common practices in the development of modern applications.
 
-## Instructions
+## 📋 Instructions
 
 1. Install `eslint-plugin-react` as a development dependency:
 
@@ -27,6 +27,7 @@ The rules are designed to improve code consistency and allow certain common prac
       ```js
       import react from 'eslint-plugin-react'
       ```
+
       ```js
       'react': react,
       ```
@@ -75,7 +76,7 @@ The rules are designed to improve code consistency and allow certain common prac
       ]
      ```
 
-That's all, the `eslint.config.js` would look something like this:
+## 📝 Example of `eslint.config.js`
 
 ```js
 import js from '@eslint/js'
@@ -150,6 +151,6 @@ export default tseslint.config(
 )
 ```
 
-## Contributions
+## 🤝 Contributions
 
 Feel free to contribute to this project by opening a pull request or reporting an issue.
